@@ -10,75 +10,74 @@ body {
   color: #f8fafc;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #111827;
+  border-bottom: 1px solid #1e293b;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-header p {
-  color: #cbd5e1;
-}
-
-.card {
-  background: #1e293b;
-  border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 20px;
-}
-
-.card h2 {
-  margin-bottom: 15px;
+.navbar h2 {
   color: #38bdf8;
 }
 
-ul {
-  padding-left: 20px;
-}
-
-li {
-  margin-bottom: 10px;
-}
-
-pre {
-  background: #020617;
-  padding: 20px;
-  border-radius: 8px;
-  overflow-x: auto;
-}
-
-/* FORMULÁRIO */
-
-.formulario {
+.menu {
   display: flex;
-  flex-direction: column;
   gap: 15px;
 }
 
-.formulario input,
-.formulario select {
-  padding: 12px;
-  border-radius: 8px;
+.menu button {
+  background: transparent;
   border: none;
-  background: #334155;
   color: white;
+  cursor: pointer;
   font-size: 1rem;
 }
 
-.formulario button {
-  padding: 12px;
+.menu button:hover {
+  color: #38bdf8;
+}
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95)),
+    url('/assets/images/hero-geek.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #38bdf8;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 30px;
+}
+
+.hero-btn {
+  padding: 15px 30px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #38bdf8;
   color: #0f172a;
   font-weight: bold;
@@ -86,28 +85,4 @@ pre {
   font-size: 1rem;
 }
 
-.formulario button:hover {
-  opacity: 0.9;
-}
-
-/* LISTA */
-
-.lista {
-  display: grid;
-  gap: 15px;
-}
-
-.participante {
-  background: #334155;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-.participante h3 {
-  margin-bottom: 10px;
-  color: #38bdf8;
-}
-
-.participante p {
-  margin-bottom: 5px;
 }
