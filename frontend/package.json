@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
 
-    "homepage": "https://noliveira895.github.io/unig_programacao_web_ads/" , 
+  "homepage": "https://noliveira895.github.io/unig_programacao_web_ads/" , 
 
   "scripts": {
     "dev": "vite",
