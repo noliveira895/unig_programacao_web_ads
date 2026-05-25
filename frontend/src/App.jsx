@@ -1,13 +1,15 @@
 import { useState } from "react";
+import "./styles.css";
 
 export default function App() {
+  const [pagina, setPagina] = useState("home");
+
   const [participantes, setParticipantes] = useState([]);
 
   const [form, setForm] = useState({
     nome: "",
     email: "",
-    tipo: "",
-    evento: ""
+    atividade: ""
   });
 
   function handleChange(e) {
@@ -20,122 +22,51 @@ export default function App() {
   function cadastrarParticipante(e) {
     e.preventDefault();
 
-    if (!form.nome || !form.email || !form.tipo || !form.evento) {
+    if (!form.nome || !form.email || !form.atividade) {
       alert("Preencha todos os campos.");
       return;
     }
 
     setParticipantes([...participantes, form]);
 
+    alert("Participante cadastrado com sucesso!");
+
     setForm({
       nome: "",
       email: "",
-      tipo: "",
-      evento: ""
+      atividade: ""
     });
   }
 
   return (
-    <div className="container">
-      <header>
-        <h1>Plataforma de Eventos Geek & Cultura Digital</h1>
+    <div>
+      <nav className="navbar">
+        <h2>Geek Universe 2026</h2>
 
-        <p>
-          Projeto acadêmico demonstrando conceitos de
-          Programação Orientada a Objetos.
-        </p>
-      </header>
+        <div className="menu">
+          <button onClick={() => setPagina("home")}>Início</button>
+          <button onClick={() => setPagina("eventos")}>Eventos</button>
+          <button onClick={() => setPagina("sobre")}>Sobre</button>
+        </div>
+      </nav>
 
-      <section className="card">
-        <h2>Cadastro de Participantes</h2>
+      {pagina === "home" && (
+        <section>
+          <header className="hero">
+            <div className="hero-content">
+              <h1>Geek Universe 2026</h1>
 
-        <form onSubmit={cadastrarParticipante} className="formulario">
+              <p>
+                O maior evento geek e tecnológico da região.
+                Campeonatos, cosplay, palestras e experiências digitais.
+              </p>
 
-          <input
-            type="text"
-            name="nome"
-            placeholder="Nome"
-            value={form.nome}
-            onChange={handleChange}
-          />
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={handleChange}
-          />
-
-          <select
-            name="tipo"
-            value={form.tipo}
-            onChange={handleChange}
-          >
-            <option value="">Tipo de Participação</option>
-            <option value="Jogador">Jogador</option>
-            <option value="Cosplayer">Cosplayer</option>
-            <option value="Palestrante">Palestrante</option>
-            <option value="Visitante">Visitante</option>
-          </select>
-
-          <select
-            name="evento"
-            value={form.evento}
-            onChange={handleChange}
-          >
-            <option value="">Evento</option>
-            <option value="Campeonato Gamer">
-              Campeonato Gamer
-            </option>
-            <option value="Concurso Cosplay">
-              Concurso Cosplay
-            </option>
-            <option value="Palestra Tech">
-              Palestra Tech
-            </option>
-          </select>
-
-          <button type="submit">
-            Cadastrar Participante
-          </button>
-        </form>
-      </section>
-
-      <section className="card">
-        <h2>Participantes Cadastrados</h2>
-
-        {participantes.length === 0 ? (
-          <p>Nenhum participante cadastrado.</p>
-        ) : (
-          <div className="lista">
-            {participantes.map((p, index) => (
-              <div className="participante" key={index}>
-                <h3>{p.nome}</h3>
-
-                <p><strong>Email:</strong> {p.email}</p>
-
-                <p><strong>Tipo:</strong> {p.tipo}</p>
-
-                <p><strong>Evento:</strong> {p.evento}</p>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
-
-      <section className="card">
-        <h2>Conceitos de POO Aplicados</h2>
-
-        <ul>
-          <li>Encapsulamento</li>
-          <li>Herança</li>
-          <li>Polimorfismo</li>
-          <li>Abstração</li>
-          <li>Interfaces</li>
-          <li>Sobrecarga</li>
-        </ul>
-      </section>
-    </div>
-  );
-}
+              <button
+                className="hero-btn"
+                onClick={() => {
+                  document
+                    .getElementById("formulario")
+                    .scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Quero Participar
